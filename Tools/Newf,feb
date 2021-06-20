@@ -1,0 +1,23 @@
+
+|Repeat munge spr.Iyonix.Sprites22 -Type FF9 -Tasks
+|Repeat munge spr.Iyonix.Tools -Type FF9 -Tasks
+|Repeat munge spr.Lazarus.Tools -Type FF9 -Tasks
+|Repeat munge spr.Morris4.Sprites22 -Type FF9 -Tasks
+|Repeat munge spr.Morris4.Tools -Type FF9 -Tasks
+|Repeat munge spr.NC2.Sprites -Type FF9 -Tasks
+|Repeat munge spr.NC2.Tools -Type FF9 -Tasks
+|Repeat munge spr.Raspberry.Sprites22 -Type FF9 -Tasks
+|Repeat munge spr.Raspberry.Tools -Type FF9 -Tasks
+|Repeat munge spr.RO400.Sprites22 -Type FF9 -Tasks
+|Repeat munge spr.RO400.Tools -Type FF9 -Tasks
+|Repeat munge spr.Sovereign.Sprites22 -Type FF9 -Tasks
+|Repeat munge spr.Sovereign.Tools -Type FF9 -Tasks
+|Repeat munge spr.Ursula.Sprites22 -Type FF9 -Tasks
+|Repeat munge spr.Ursula.Tools -Type FF9 -Tasks
+
+Repeat munge spr.Iyonix.Textures -Type FF9 -Tasks
+Repeat munge spr.Morris4.Textures -Type FF9 -Tasks
+Repeat munge spr.Raspberry.Textures -Type FF9 -Tasks
+Repeat munge spr.RO400.Textures -Type FF9 -Tasks
+Repeat munge spr.Sovereign.Textures -Type FF9 -Tasks
+Repeat munge spr.Ursula.Textures -Type FF9 -Tasks

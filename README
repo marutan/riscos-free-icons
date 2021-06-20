@@ -1,0 +1,186 @@
+RISC OS Icon sets
+-----------------
+
+This is a collection of icon themes from the operating System RISC OS. 
+Converted from Acorn Sprite to PNG format to be more useful on other
+platforms.
+
+Please note, only the square pixel icons are present, the rectangular pixel
+versions (used on TV resolution modes) have not been converted.
+
+The icon sets are named for project codenames for different versions of the OS
+
+Morris4
+ This is the icon set for RISC OS 3.50-3.71
+ 
+Ursula
+ This is the icon set for from RISC OS 3.80, which was designed for the Acorn
+ Phoebe.
+ 
+RO400
+ This is the icon set for RISC OS 4.02, which is very similar to Ursula, but
+ changes the directory colours from blue to green, and the Acorn Logo to a
+ Cube logo.
+
+Iyonix/Sovereign
+ These are the icon sets from RISC OS 5. Iyonix has Iyonix PC branding, 
+ whereas Sovereign has more generic ROOL branding.
+ 
+Raspberry
+ This icon set has updated window borders and is the theme normally used on 
+ the Raspberry Pi.
+ Please Note: The toolsprites (window borders) have incorrect colours at the 
+ moment, as they are in a slight variation of format that does the palette 
+ differently.
+ 
+NC2/Lazarus
+ This icon subsets were used on Acorn set top box products.
+
+Icons are (c) RISC OS Developments Ltd and are released under the terms
+of the Apache License 2.0. Please see file LICENCE for more details.
+
+Icon conversion by Peter Howkins. June 2021.
+
+
+Conversion information (feel free to ignore)
+--------------------------------------------
+
+RISC OS programs needed
+
+!SprSplit (used 1.00 from sprutils archive)
+!Spr2Png  (used 0.26)
+
+Sprites located in ROOL repository at:
+Sources/Desktop/Wimp/Resources/UK
+Background Textures located in ROOL repository  at:
+Sources/SystemRes/DesktopBoot/Configure/Textures
+
+Step 1 - Split combination sprite files into individual sprites
+---------------------------------------------------------------
+
+Created new directory, spr
+ Create sub dir Iyonix
+  Create sub dir Sprites22
+   Use SprSplit to put Iyonix.DiscSprites.Sprites22 to this dir
+   
+   Rename badnames
+    ic_configurery
+    ptr_autoscrhry
+    ptr_autoscrvry
+    sm!configurery
+   
+  Create sub dir Tools
+   Use SprSplit to put Iyonix.DiscSprites.Tools to this dir
+   
+ Create sub dir Lazarus
+  Create sub dir Tools
+   Use SprSplit to put Lazarus.Tools to this dir
+ 
+ Create sub dir Morris4
+  Create sub dir Sprites22
+   Use SprSplit to put Morris4.DiscSprites.Sprites22 to this dir
+
+   Rename badnames
+    ic_configurery
+    ptr_autoscrhry
+    ptr_autoscrvry
+    sm!configurery
+   
+  Create sub dir Tools
+   Use SprSplit to put Morris4.Tools to this dir
+
+ Create sub dir NC2
+  Create sub dir Sprites
+   Use SprSplit to put NC2.DiscSprites.Sprites to this dir
+
+  Create sub dir Tools
+   Use SprSplit to put NC2.DiscSprites.Tools to this dir
+    
+ Create sub dir Raspberry
+  Create sub dir Sprites22
+   Use SprSplit to put Raspberry.DiscSprites.Sprites22 to this dir
+   
+   Rename badnames
+    ic_configurery
+    ptr_autoscrhry
+    ptr_autoscrvry
+    sm!configurery
+   
+  Create sub dir Tools
+   Use SprSplit to put Raspberry.DiscSprites.Tools to this dir
+ 
+ Create sub dir RO400
+  Create sub dir Sprites22
+   Use SprSplit to put RO400.Sprites22 to this dir
+   
+   Rename badnames
+    ptr_autoscrhry
+    ptr_autoscrvry
+    sm!configurery
+   
+  Create sub dir Tools
+   Use SprSplit to put RO400.Tools to this dir
+
+ Create sub dir Sovereign
+  Create sub dir Sprites22
+   Use SprSplit to put Sovereign.DiscSprites.Sprites22 to this dir
+
+   Rename badnames
+    ic_configurery
+    ptr_autoscrhry
+    ptr_autoscrvry
+    sm!configurery
+   
+  Create sub dir Tools
+   Use SprSplit to put Sovereign.DiscSprites.Tools to this dir
+  
+ Create sub dir Ursula
+  Create sub dir Sprites22
+   Use SprSplit to put Ursula.DiscSprites.Sprites22 to this dir
+
+   Rename badnames
+    ic_configurery
+    ptr_autoscrhry
+    ptr_autoscrvry
+    sm!configurery
+   
+  Create sub dir Tools
+   Use SprSplit to put Sovereign.Tools to this dir
+
+Step 2 - Add in background textures
+-----------------------------------
+
+Create dir spr.Iyonix.Textures
+Create dir spr.Morris4.Textures
+Create dir spr.Raspberry.Textures
+Create dir spr.RO400.Textures
+Create dir spr.Sovereign.Textures
+Create dir spr.Ursula.Textures
+
+ Copy Textures.Universal.* to each of the above directories
+
+Then
+ 
+ Copy Textures.Iyonix.^ over the files in spr.Iyonix.Textures
+ Copy Textures.Morris4.^ over the files in spr.Morris4.Textures
+ Copy Textures.Raspberry.^ over the files in spr.Raspberry.Textures
+ Copy Textures.Sovereign.^ over the files in spr.Sovereigb.Textures
+
+Step 3 - Convert sprites to PNG
+-------------------------------
+
+Make sure
+ !Spr2Png
+ munge
+ newf
+are in the top level dir
+
+Run newf, press space lots to get past it failing to convert rectangular pixel sprites
+
+Step 4 - Rename all the files to remove ,xxx filetype
+-----------------------------------------------------
+
+# Remove sprite files
+find . -name "*,ff9" -type f -exec rm -rf {} \;
+# Remove hostfs filetypes
+find . -depth -type f -name "*,b60" -exec sh -c 'mv "$1" "${1%,b60}"' _ {} \;
